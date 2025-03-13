@@ -1,0 +1,9 @@
+google-cloud-resource-manager
+google-cloud-bigquery
+google-auth
+protobuf
+google-cloud-monitoring
+functions_framework
+pytest
+pytest-mock
+google-cloud-logging

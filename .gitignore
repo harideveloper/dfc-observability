@@ -1,0 +1,63 @@
+#zip files
+*.zip
+
+# Python-specific ignores
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Virtual environment directories
+env/
+dev-venv/
+venv/
+ENV/
+.venv/
+
+# Distribution / packaging
+.Python
+build/
+dist/
+*.egg-info/
+
+# Test / coverage reports
+*.coverage
+*.coverage.*
+nosetests.xml
+coverage.xml
+*.hypothesis/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Pytest cache
+.pytest_cache/
+
+# Terraform-specific ignores
+# Terraform files that shouldn't be tracked
+.terraform/
+
+# Terraform plan files
+*.tfplan
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+
+# Local override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Sensitive data or credentials
+*.tfvars
+
+# Windows-specific
+Thumbs.db
+Desktop.ini
+
+# macOS-specific
+.DS_Store

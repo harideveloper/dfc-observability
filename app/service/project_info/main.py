@@ -74,9 +74,9 @@ def transform(projects):
             labels_list = [{"key": k, "value": v} for k, v in project_dict.get("labels", {}).items()]
             row = {
                 "project_id": project_dict["project_id"],
-                "name": project_dict["name"],
-                "parent": project_dict.get("parent"),
-                "display_name": project_dict.get("display_name"),
+                "project_number": project_dict["name"],
+                "folder_id": project_dict.get("parent"),
+                "project_name": project_dict.get("display_name"),
                 "state": project_dict.get("state"),
                 "create_time": project_dict.get("create_time"),
                 "update_time": project_dict.get("update_time"),

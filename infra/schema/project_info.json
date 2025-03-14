@@ -1,0 +1,74 @@
+[
+    {
+        "name": "project_id",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description" : "Project ID"
+    },
+    {
+        "name": "project_number",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description" : "Project Number"
+    },
+    {
+        "name": "folder_id",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description" : "Folder ID"
+    },
+    {
+        "name": "project_name",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description" : "Project display name"
+    },
+    {
+        "name": "state",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description" : "Project status"
+    },
+    {
+        "name": "create_time",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE",
+        "description" : "Project creation timestamp"
+    },
+    {
+        "name": "update_time",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE",
+        "description" : "Project last updated timestamp"
+    },
+    {
+        "name": "ingestion_time",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE",
+        "description" : "Ingestion timestamp"
+    },
+    {
+        "name": "etag",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description" : "IAM Roles"
+    },
+    {
+        "name": "labels",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "description" : "custom labels",
+        "fields": [
+            {
+                "name": "key",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "value",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            }
+        ]
+    }
+]

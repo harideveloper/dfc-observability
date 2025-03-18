@@ -10,6 +10,15 @@ data "archive_file" "project_info" {
   type        = "zip"
   source_dir  = "${path.module}/../app/service/project_info"
   output_path = "${path.module}/function-project-info.zip"
+
+  excludes = [
+    "**/__pycache__",
+    "**/*.pyc",
+    "**/test_*.py",
+    "**/*.log",
+    "**/*.pytest_cache",
+    "**/*.coverage"
+  ]
 }
 
 resource "google_storage_bucket_object" "project_info" {
@@ -46,19 +55,19 @@ resource "google_cloudfunctions2_function" "project_info" {
 
     environment_variables = {
       # BQ_TABLE   = google_bigquery_table.projects.friendly_name
-      BQ_TABLE   = "${var.project_id}.${google_bigquery_dataset.projects.dataset_id}.${google_bigquery_table.projects.table_id}" 
-      FOLDER_ID  = var.folder
+      BQ_TABLE    = "${var.project_id}.${google_bigquery_dataset.projects.dataset_id}.${google_bigquery_table.projects.table_id}"
+      FOLDER_ID   = var.folder
       GCP_PROJECT = var.project_id
     }
 
-    vpc_connector = google_vpc_access_connector.connector.id
+    vpc_connector                 = google_vpc_access_connector.connector.id
     vpc_connector_egress_settings = "ALL_TRAFFIC"
     # ingress_settings = "ALLOW_INTERNAL_ONLY"
     service_account_email = google_service_account.project_info.email
   }
 
   depends_on = [
-    google_storage_bucket.project_info, 
+    google_storage_bucket.project_info,
     google_service_account.project_info,
     google_vpc_access_connector.connector,
     google_bigquery_dataset.projects,
